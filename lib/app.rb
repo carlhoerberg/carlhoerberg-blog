@@ -6,6 +6,7 @@ require File.expand_path("../models", __FILE__)
 
 set :haml, :format => :html5, :escape_html => true
 set :views, File.expand_path("../../views", __FILE__)
+set :public, File.expand_path("../../public", __FILE__)
 
 helpers do
   def protected!
@@ -19,6 +20,11 @@ helpers do
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
     @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['bloguser'], ENV['blogpassword']]
   end
+
+	def replace_gist(html)
+					html.gsub(/^(http[s]?:\/\/gist.github.com\/[\d]+)$/, 
+										"<script src='\1.js'></script>") 
+	end
 end
 
 

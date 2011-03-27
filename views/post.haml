@@ -1,6 +1,7 @@
 %h2= @post.title
 #info= @post.posted
-%p= markdown @post.body
+%p
+  != replace_gist(markdown(@post.body))
 
 %a{:name=>"comments"}
 #disqus_thread

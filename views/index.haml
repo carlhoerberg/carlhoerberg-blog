@@ -1,4 +1,7 @@
 - @posts.each do |p| 
-  %h2= p.title
-  %p= markdown p.body
-  %a{:href=> "/#{@p.slug}#comments"} Comments
+  %h2
+    %a{:href=>"/posts/#{p.slug}#comments"}
+      = p.title
+  %p
+    != replace_gist(markdown(@post.body))
+  %a{:href=> "/posts/#{p.slug}#commentS"} comments
