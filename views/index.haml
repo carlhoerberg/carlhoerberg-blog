@@ -1,0 +1,4 @@
+- @posts.each do |p| 
+  %h2= p.title
+  %p= markdown p.body
+  %a{:href=> "/#{@p.slug}#comments"} Comments
