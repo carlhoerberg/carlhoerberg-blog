@@ -1,6 +1,6 @@
 task :environment do
-	require File.expand_path("../lib/environment", __FILE__)
-	require File.expand_path("../lib/models", __FILE__)
+	require './lib/environment'
+	require './lib/models'
 end
 
 namespace :db do
@@ -8,20 +8,9 @@ namespace :db do
 		require 'dm-migrations'
 		DataMapper.auto_upgrade!
 	end
-end
-task :import do
-	require 'rss/1.0'
-	require 'rss/2.0'
-	require 'open-uri'
-
-	source = "http://feeds.feedburner.com/devcarl?format=xml" 
-	content = "" # raw content of rss feed will be loaded here
-	open(source) do |s| content = s.read end
-	rss = RSS::Parser.parse(content, false)
-	rss.items.each do |i|
-		Post.create(:title => i.title,
-			    :body => i.description,
-			    :posted => i.date)
+	task :reset => :environment do
+		require 'dm-migrations'
+		DataMapper.auto_migrate!
 	end
 end
 
