@@ -1,3 +1,6 @@
+%ul.errors
+  -@post.errors.each do |e|
+    %li= e
 %form{:method=>"POST"}
   %label 
     Title

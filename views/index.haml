@@ -3,5 +3,5 @@
     %a{:href=>"/posts/#{p.slug}#comments"}
       = p.title
   %p
-    != replace_gist(markdown(@post.body))
+    != replace_gist(markdown(p.body))
   %a{:href=> "/posts/#{p.slug}#commentS"} comments
