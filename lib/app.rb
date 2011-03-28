@@ -28,7 +28,7 @@ helpers do
 	end
 
 	def replace_gist(html)
-		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)/,
+		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+) /,
 							'<script src="\1.js"></script>')
 	end
 end
