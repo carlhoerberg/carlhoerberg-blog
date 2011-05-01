@@ -2,171 +2,172 @@
 - slug: resume
   title: Resume
   posted: 2011-02-01 22:10:00 +01:00
-  body: "## Education
+  body: |- 
+    ## Education
 
-  **Master in Computer Science**  
-  2005-2010 at Link&ouml;pings University, Sweden  
-  Focus on software development
+    ** Master in Computer Science **  
+    2005-2010 at Link&ouml;pings University, Sweden  
+    Focus on software development
 
-  ## Experience
+    ## Experience
 
-  **[Mon 7 Consulting AB][1]**  
-  *While studying, from feb 2008, from 2010 at full time*  
-  Mon 7 Consulting develops customer specific business applications. I've been the lead developer and been responsible for all of our projects, from pre-study, requirement gathering, architecture, development, testing, training, support and server configuration/management. Lead two other developers. Example of systems we have developed:
+    ** [Mon 7 Consulting AB][1] **  
+    *While studying, from feb 2008, from 2010 at full time*  
 
-  *   System for insurances management and incident reporting for one of Sweden's largest counties. 
-  *   Application for systematic fire precaution work, including a mobile web interface. 
-  *   A system for collection of energy statistics, and making a lot of computation and charts over it. Biggest challenge: Scaling for the amount of data which is gathered. Integration with a lot of different statistics providers. 
-  *   Administration application for a big electricity broker. Biggest challenge: A manageable, extendable and testable billing routine, which is in almost constant change. 
+    Mon 7 Consulting develops customer specific business applications. I've been the lead developer and been responsible for all of our projects, from pre-study, requirement gathering, architecture, development, testing, training, support and server configuration/management. Lead two other developers. Example of systems we have developed:
 
-  All the systems has a web interface and the main development platform is .NET. 
+    *   System for insurances management and incident reporting for one of Sweden's largest counties. 
+    *   Application for systematic fire precaution work, including a mobile web interface. 
+    *   A system for collection of energy statistics, and making a lot of computation and charts over it. Biggest challenge: Scaling for the amount of data which is gathered. Integration with a lot of different statistics providers. 
+    *   Administration application for a big electricity broker. Biggest challenge: A manageable, extendable and testable billing routine, which is in almost constant change. 
 
-  **[CT Labs][2]**  
-  *Fall 2009*  
-  As a part of my master thesis (which was a study of the Lean startup model) me and my partner started a company and I developed a CAD viewer for construction workers. 
+    All the systems has a web interface and the main development platform is .NET. 
 
-  **[CH Consulting][3]**  
-  *2009- (In practice since 1996)*  
-  My personal consulting firm which provides IT operation and support, both in Windows and Linux environments, as well as develops intranet solutions and websites, mostly in Ruby. Examples:
+    **[CT Labs][2]**  
+    *Fall 2009*  
+    As a part of my master thesis (which was a study of the Lean startup model) me and my partner started a company and I developed a CAD viewer for construction workers. 
 
-  * Resume database for a annually conference for women studying computer science. Built using Sinatra, Heroku and S3. 
-  * Lab application which store blood sample results. Build on Sinatra. 
-  * Responsible for a vet.clinic's IT environment, including planning, buy-in, counseling and day to day support. Environment base on Windows but with thin clients using Linux and RDP.
+    **[CH Consulting][3]**  
+    *2009- (In practice since 1996)*  
+    My personal consulting firm which provides IT operation and support, both in Windows and Linux environments, as well as develops intranet solutions and websites, mostly in Ruby. Examples:
 
-  **[Centercom AB][4]**
-  *In parallel with my studies (60-90h/month), 2006-2008*
-  Centercom provides technical services in web development and web content management. I worked as a developer (C#, XSLT, CSS, HTML, JavaScript) but also with requirement gathering and customer training. They have begged me to come back ever since I quit. 
+    * Resume database for a annually conference for women studying computer science. Built using Sinatra, Heroku and S3. 
+    * Lab application which store blood sample results. Build on Sinatra. 
+    * Responsible for a vet.clinic's IT environment, including planning, buy-in, counseling and day to day support. Environment base on Windows but with thin clients using Linux and RDP.
 
-  **[Ericsson][5]**  
-  *Summer job in 2006 and 2007*  
-  At the NetSIM department was a mobile network simulator developed. I worked with stuff like implementing functionality in the simulator (Erlang), installation scripts (bash/sh), GUI for the frontend (Java). My supervisor was stunned when the work they had planed for my 5 week period was done within the first week. 
+    **[Centercom AB][4]**
+    *In parallel with my studies (60-90h/month), 2006-2008*
+    Centercom provides technical services in web development and web content management. I worked as a developer (C#, XSLT, CSS, HTML, JavaScript) but also with requirement gathering and customer training. They have begged me to come back ever since I quit. 
 
-  **[Military service][6]**  
-  *15 month as a artic soldier and sergeant*  
-  Responsible for 22 guys and establishing of mobile telecommunication equipped bandwagons. Was awarded for best company sergeant. 
+    **[Ericsson][5]**  
+    *Summer job in 2006 and 2007*  
+    At the NetSIM department was a mobile network simulator developed. I worked with stuff like implementing functionality in the simulator (Erlang), installation scripts (bash/sh), GUI for the frontend (Java). My supervisor was stunned when the work they had planed for my 5 week period was done within the first week. 
 
-  ## Technical skills
-  Below are some of the technologies I have worked with, in no particular ordering.  
+    **[Military service][6]**  
+    *15 month as a artic soldier and sergeant*  
+    Responsible for 22 guys and establishing of mobile telecommunication equipped bandwagons. Was awarded for best company sergeant. 
 
-  **Languages**
+    ## Technical skills
+    Below are some of the technologies I have worked with, in no particular ordering.  
 
-  *   C#
-  *   SQL
-  *   Javascript
-  *   CSS
-  *   HTML
-  *   Ruby
-  *   Erlang
-  *   Java
-  *   PHP
-  *   VB
-  *   XSLT
+    **Languages**
 
-  **IDE**
+    *   C#
+    *   SQL
+    *   Javascript
+    *   CSS
+    *   HTML
+    *   Ruby
+    *   Erlang
+    *   Java
+    *   PHP
+    *   VB
+    *   XSLT
 
-  *   Vim (preferred)
-  *   Visual Studio (+ ReSharper)
-  *   Emacs
-  *   Eclipse
+    **IDE**
 
-  **Frameworks**
+    *   Vim (preferred)
+    *   Visual Studio (+ ReSharper)
+    *   Emacs
+    *   Eclipse
 
-  *   .NET 2.0-4.0
-  *   ASP.NET MVC
-  *   ASP.NET WebForms
-  *   WinForms
-  *   Silverlight
-  *   WCF
-  *   Ruby On Rails
-  *   Sinatra
-  *   Padrino
+    **Frameworks**
 
-  **Databases**
+    *   .NET 2.0-4.0
+    *   ASP.NET MVC
+    *   ASP.NET WebForms
+    *   WinForms
+    *   Silverlight
+    *   WCF
+    *   Ruby On Rails
+    *   Sinatra
+    *   Padrino
 
-  *   Microsoft SQL
-  *   MySQL
-  *   PostgresSQL
-  *   MongoDB
-  *   Redis
-  *   CouchDB
-  *   Amazon SimpleDB
-  *   Azure SQL
-  *   RavenDB
+    **Databases**
 
-  **MQ's**
+    *   Microsoft SQL
+    *   MySQL
+    *   PostgresSQL
+    *   MongoDB
+    *   Redis
+    *   CouchDB
+    *   Amazon SimpleDB
+    *   Azure SQL
+    *   RavenDB
 
-  *   Beanstalk
-  *   RabbitMQ
-  *   MSMQ
+    **MQ's**
 
-  **VCS**
+    *   Beanstalk
+    *   RabbitMQ
+    *   MSMQ
 
-  *   Git (preferred)
-  *   SVN
-  *   Mercurial/HG
-  *   CVS
+    **VCS**
 
-  **Cloudservices (IaaS/PaaS)**
+    *   Git (preferred)
+    *   SVN
+    *   Mercurial/HG
+    *   CVS
 
-  *   Amazon
-  *   Heroku
-  *   Azure
+    **Cloudservices (IaaS/PaaS)**
 
-  **Methods/Practices**
+    *   Amazon
+    *   Heroku
+    *   Azure
 
-  *   Scrum
-  *   Lean 
-  *   XP
-  *   Kanban
-  *   Domain Driven Design
-  *   TDD
-  *   BDD
-  *   Continous Integration
-  *   SOLID
-  *   CQRS
+    **Methods/Practices**
 
-  **ORMs**
+    *   Scrum
+    *   Lean 
+    *   XP
+    *   Kanban
+    *   Domain Driven Design
+    *   TDD
+    *   BDD
+    *   Continous Integration
+    *   SOLID
+    *   CQRS
 
-  *   Datamapper
-  *   ActiveRecord
-  *   NHibernate
-  *   Linq to SQL
-  *   Entity Framework
-  *   Subsonic
+    **ORMs**
 
-  **Misc**
+    *   Datamapper
+    *   ActiveRecord
+    *   NHibernate
+    *   Linq to SQL
+    *   Entity Framework
+    *   Subsonic
 
-  *   jQuery
-  *   jQuery UI
-  *   Cucumber
-  *   RSpec
-  *   AutoMapper
-  *   Log4Net
-  *   nUnit
-  *   xUnit
-  *   SpecFlow
-  *   WatiN
-  *   WatiR
-  *   Knockout
-  *   Capybara
+    **Misc**
 
-  ## Open source projects I've contributed to ##
+    *   jQuery
+    *   jQuery UI
+    *   Cucumber
+    *   RSpec
+    *   AutoMapper
+    *   Log4Net
+    *   nUnit
+    *   xUnit
+    *   SpecFlow
+    *   WatiN
+    *   WatiR
+    *   Knockout
+    *   Capybara
 
-  * [Autofac](http://code.google.com/p/autofac/) - One of the major Dependency Injection frameworks for .NET
-  * [Pony](http://github.com/benprew/pony) - An easy way to send mail in Ruby
+    ## Open source projects I've contributed to ##
 
-  ## Toy projects ##
+    * [Autofac](http://code.google.com/p/autofac/) - One of the major Dependency Injection frameworks for .NET
+    * [Pony](http://github.com/benprew/pony) - An easy way to send mail in Ruby
 
-  See my [Github account](https://github.com/carlhoerberg) for all my open source involvement. 
+    ## Toy projects ##
 
-  * [Websockets and Knockup](http://github.com/carlhoerberg/knockout-websocket-example)
-  * [Beanstalks and Websockets](http://github.com/carlhoerberg/twitter-beanstalk-websocket-example)
-  * [NSinatra](http://github.com/carlhoerberg/nsinatra) - A Sinatra clone for .NET
+    See my [Github account](https://github.com/carlhoerberg) for all my open source involvement. 
 
-   [1]: http://www.mon7.se/
-   [2]: http://www.ctlabs.se/
-   [3]: http://www.chconsulting.se/
-   [4]: http://www.centercom.se/
-   [5]: http://www.ericsson.se/
-   [6]: http://www.forsvarsmakten.se/en/Organisation/Training-units/Norrbotten-Regiment-I-19/
-  "
+    * [Websockets and Knockup](http://github.com/carlhoerberg/knockout-websocket-example)
+    * [Beanstalks and Websockets](http://github.com/carlhoerberg/twitter-beanstalk-websocket-example)
+    * [NSinatra](http://github.com/carlhoerberg/nsinatra) - A Sinatra clone for .NET
+
+     [1]: http://www.mon7.se/
+     [2]: http://www.ctlabs.se/
+     [3]: http://www.chconsulting.se/
+     [4]: http://www.centercom.se/
+     [5]: http://www.ericsson.se/
+     [6]: http://www.forsvarsmakten.se/en/Organisation/Training-units/Norrbotten-Regiment-I-19/ 

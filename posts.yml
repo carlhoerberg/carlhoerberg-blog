@@ -16,77 +16,47 @@
 - slug: ipad-app-tips
   posted: 2010-12-12 23:58:00 +01:00
   title: iPad app tips
-  body: "Quite a few friends are equipping them self with iPad's now that they finally are available in Sweden, and while I've had one for 6-7 months by now I though it could be good idea to list my most frequently used apps. 
-    
+  body: |- 
+    Quite a few friends are equipping them self with iPad's now that they finally are available in Sweden, and while I've had one for 6-7 months by now I though it could be good idea to list my most frequently used apps. 
 
       *   Spotify (iPhone), with iOS 4.2 (multitasking) this app is a must. 
-
       *   Wikipanion, wikipedia client. 
-
       *   IMDb, very good high quality IMDb client. 
-
       *   Heritage, photos from all world heritages sites. 
-
       *   Skype, the iPad's built in mic and speakers are very high quality. 
-
-      *   Instapaper, when ever i encounter long but interresting articles I mark them as \"Read leader\" in Chrome, and then use this app to read it because of the much more pleasant reading experience on the pad.  
-
+      *   Instapaper, when ever i encounter long but interresting articles I mark them as "Read leader" in Chrome, and then use this app to read it because of the much more pleasant reading experience on the pad.  
       *   Angry Birds, doesn't need any introduction.. 
-
       *   Cut the Rope, a game in the same spirit as Angry Birds. Easy and entertaining. 
-
       *   Monkey Island 2 Special Edition, better graphics, voice dialogs, same good story. 
-
       *   Dreams, find differences between two pictures, child game which also adults enjoys. 
-
       *   Sudoku Tablet, for the Sudoku lovers. 
-
       *   iBooks, _the_ PDF and eBook reader. 
-
       *   Kindle, get access to the full Amazon book supply. 
-
       *   River of News, best RSS/Google Reader app I've found. 
-
       *   Twitter, best twitter client, in all categories. Actually makes Twitter usable. 
-
       *   Line Art, meaningless but relaxing and beautiful app where you control a myriad of lines/dots with your fingers. 
-
       *   LIFE, breathtaking photos from the american Life magazine. I can browse it for hours.
-
       *   Dropbox, file backup/sharing. 
 
     ### Swedish
 
     +   DN+, a app which actually embrace the iPad (unlike for example SVD which merely is a glorified PDF reader). 
-
     +   ÖGT (iPhone), unexpectedly good local traffic app (for Östergötland).  
-
     +   Krysset, crossword game from Bonnier.  
 
     ### Apps which ought to be good but which I've haven't used a lot. 
     
     *   TED, great, short, insightful videos. 
-
     *   VLC, play videos of formats the iPad normally don't support, like xvid (you still need iTunes to transfer the videos, which is a show blocker for me). 
-
     *   Trapster, warnings for speed cameras/police checkpoints, crowd sourced. Hard to determine the reliability.
-
     *   RDP Lite, Windows Remote Desktop client for those who have to administer windows servers.  
-
     *   Flipboard, very hype. Shows of Twitter and other sources as a traditional newspaper. 
-
     *   Eyewithness, beautiful and engaging photos from the Guardian. 
-
     *   Grand Theft Auto, CTW Lite. Quite entertaining (the one time I played it). 
-
     *   IM+, the iPad don't lend it self for a lot of keyboard typing, but when you have to chat IM+ is my choice. 
-
     *   The Economist, the free edition only allows you the read Editor picks, but the app is very high quality and so is of course the content.
-
     *   eBokus (Swedish), swedish books. 
-
     *   Trafikinfo (Swedish), traffic information, great to be aware of accidents or road works before you're in the queue.
-    "
 
 - slug: twitter-beanstalk-eventmachine-websocket
   title: Twitter + Beanstalk + EventMachine + WebSocket
