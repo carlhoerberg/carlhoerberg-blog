@@ -1,0 +1,288 @@
+--- 
+- slug: how-to-unit-test-rabbitmq-in-c
+  title: How to unit test RabbitMQ in C#
+  body: |-
+    [RabbitMQ ][1]is a very good open source message queue server, but unfortunately it's [DotNet API][2] isn't very "dotnetish". Well, finally I figured out a way to unit test classes which relied upon IModel.
+    
+    https://gist.github.com/751617
+    
+    It uses [Moq][3] which let us mock the IModel interface and intercepts all calls to IModel#BasicConsume, which all subscribers must call to subscribe for messages, and then imeditly call IModel#HandleBasicDeliver which propagetes that a messages has arrived to the subscriber. Then the test continues by starting the class under test which contains a simple subscriber in a abortable loop. We will abort it before starting the loop (but becasue it's a do-while loop, it will try to fetch one message before returning). At last we verify that the message has been acknowledged.
+    
+     [1]: http://www.rabbitmq.com/
+     [2]: http://www.rabbitmq.com/dotnet.html
+     [3]: http://code.google.com/p/moq/
+  posted: 2011-01-02 22:01:00 +01:00
+
+- slug: ipad-app-tips
+  posted: 2010-12-12 23:58:00 +01:00
+  title: iPad app tips
+  body: "Quite a few friends are equipping them self with iPad's now that they finally are available in Sweden, and while I've had one for 6-7 months by now I though it could be good idea to list my most frequently used apps. 
+    
+
+      *   Spotify (iPhone), with iOS 4.2 (multitasking) this app is a must. 
+
+      *   Wikipanion, wikipedia client. 
+
+      *   IMDb, very good high quality IMDb client. 
+
+      *   Heritage, photos from all world heritages sites. 
+
+      *   Skype, the iPad's built in mic and speakers are very high quality. 
+
+      *   Instapaper, when ever i encounter long but interresting articles I mark them as \"Read leader\" in Chrome, and then use this app to read it because of the much more pleasant reading experience on the pad.  
+
+      *   Angry Birds, doesn't need any introduction.. 
+
+      *   Cut the Rope, a game in the same spirit as Angry Birds. Easy and entertaining. 
+
+      *   Monkey Island 2 Special Edition, better graphics, voice dialogs, same good story. 
+
+      *   Dreams, find differences between two pictures, child game which also adults enjoys. 
+
+      *   Sudoku Tablet, for the Sudoku lovers. 
+
+      *   iBooks, _the_ PDF and eBook reader. 
+
+      *   Kindle, get access to the full Amazon book supply. 
+
+      *   River of News, best RSS/Google Reader app I've found. 
+
+      *   Twitter, best twitter client, in all categories. Actually makes Twitter usable. 
+
+      *   Line Art, meaningless but relaxing and beautiful app where you control a myriad of lines/dots with your fingers. 
+
+      *   LIFE, breathtaking photos from the american Life magazine. I can browse it for hours.
+
+      *   Dropbox, file backup/sharing. 
+
+    ### Swedish
+
+    +   DN+, a app which actually embrace the iPad (unlike for example SVD which merely is a glorified PDF reader). 
+
+    +   ÖGT (iPhone), unexpectedly good local traffic app (for Östergötland).  
+
+    +   Krysset, crossword game from Bonnier.  
+
+    ### Apps which ought to be good but which I've haven't used a lot. 
+    
+    *   TED, great, short, insightful videos. 
+
+    *   VLC, play videos of formats the iPad normally don't support, like xvid (you still need iTunes to transfer the videos, which is a show blocker for me). 
+
+    *   Trapster, warnings for speed cameras/police checkpoints, crowd sourced. Hard to determine the reliability.
+
+    *   RDP Lite, Windows Remote Desktop client for those who have to administer windows servers.  
+
+    *   Flipboard, very hype. Shows of Twitter and other sources as a traditional newspaper. 
+
+    *   Eyewithness, beautiful and engaging photos from the Guardian. 
+
+    *   Grand Theft Auto, CTW Lite. Quite entertaining (the one time I played it). 
+
+    *   IM+, the iPad don't lend it self for a lot of keyboard typing, but when you have to chat IM+ is my choice. 
+
+    *   The Economist, the free edition only allows you the read Editor picks, but the app is very high quality and so is of course the content.
+
+    *   eBokus (Swedish), swedish books. 
+
+    *   Trafikinfo (Swedish), traffic information, great to be aware of accidents or road works before you're in the queue.
+    "
+
+- slug: twitter-beanstalk-eventmachine-websocket
+  title: Twitter + Beanstalk + EventMachine + WebSocket
+  body: |-
+    Justed [forked][1] a [Twitter AMQP WebSocket example][2] project by [Ruben Fonseca][3] but replaced the AMQP/RabbitMQ with [Beanstalk][4] instead. I've been playing with this fast and simple message queue called Beanstalk for a couple of days and now wanted to see if I could do some WebSocket work with it as well. You can find an [introduction to Beanstalk here][5] and [some comparison to other MQs here][6].
+    
+    The [EventMachine][7], which is a highly scalable, event driven i/o library for ruby (and c++ and java), was a very nice surprise and was very easy to work with. Both the [Twitter Streaming library][8], the [Beanstalk client][9] and the [WebSocket server][10] uses EventMachine so the whole example it fully asynchronous and probably quite scalable.
+    
+    Check it out: <http://github.com/carlhoerberg/twitter-beanstalk-websocket-example>
+    
+     [1]: http://github.com/carlhoerberg/twitter-beanstalk-websocket-example
+     [2]: http://github.com/rubenfonseca/twitter-amqp-websocket-example
+     [3]: http://github.com/rubenfonseca
+     [4]: http://kr.github.com/beanstalkd/
+     [5]: http://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/
+     [6]: http://adam.heroku.com/past/2010/4/24/beanstalk_a_simple_and_fast_queueing_backend/
+     [7]: http://github.com/eventmachine/eventmachine/wiki
+     [8]: http://github.com/voloko/twitter-stream
+     [9]: http://github.com/dj2/em-jack
+     [10]: http://github.com/igrigorik/em-websocket
+  :posted: 2010-10-13 20:05:00 +02:00
+- :slug: how-to-override-activerecord-primary-key-and-foreign-key-conventions
+  :title: How to override ActiveRecord primary key and foreign key conventions
+  :body: |-
+    While evaluating the [Microsoft SQL Server adapter][1] for [ActiveRecord ][2]and [IronRuby ][3]i wanted the ability to override some activerecord conventions, class wide, so I didn't have to override it in every class and every association. Specifically I wanted the foreign keys to be named "classNameId" and not "className_id" and the primary keys "Id" instead of lower case "id", this is how you do it: 
+    http://gist.github.com/614933
+    
+    [1]: http://github.com/rails-sqlserver/activerecord-sqlserver-adapter                                           
+    [2]: http://guides.rubyonrails.org/active_record_querying.html
+    [3]: http://ironruby.net/
+  :posted: 2010-10-07 13:40:00 +02:00
+- :slug: my-development-stack
+  :title: My development stack
+  :body: |-
+    This is the development stack I employ, and why I chosed it:
+    
+    [ASP.NET MVC][1]
+    
+    Being mostly a C# programmer (altough Ruby is growing on me) [ASP.NET][2] MVC is a pretty natural selection, being the most popular MVC framework for .NET. I don't think \_not\_ using a MVC framework for web development is very serious today. A MVC framework got so many benefits compared to for example WebForms I can't even begin, so i let [Karl Seguin explain MVC vs. WebForms][3] instead. 
+    
+    [Autofac][4]
+    
+    In a static language like C# you can't live without a dependency injection framework, i choose Autofac a long time ago and have stuck with it, i think most IoC frameworks are on par in the .NET world, but it seems to me that Autofac most often have the edge, coming up with new compelling features first.   
+    
+    [nUnit][5]
+    
+    Proven unit testing framework. Tried xUnit for a while but the poor tool support (in ReSharper and TeamCity) made me go back to nUnit, it just works. 
+    
+    [Moq][6]
+    
+    There have been a lot of discussions on wether to use a mocking framework or not, but I like to write as lite code as possible when testing so a mocking  is a perfect fit for me. 
+    
+    [SpecFlow][7]
+    
+    The Ruby community came up with Cucumber in which you write specifications in plain english (or swedish), and have become very successful. The idea has now been ported to .NET. Our customers love it! 
+    
+    [WatiN][8]
+    
+    For integration testing we use WatiN which automates Internet Explorer (and Firefox). 
+    
+    [AutoMapper][10]
+    
+    Mapping code is boring and error prone, automapper lets us do the entity->viewmodel mapping by ease. 
+    
+    [Elmah][9]
+    
+    Web error logging module, drop it in and all unhandled exceptions are mailed to us. 
+    
+    [log4net][11]
+    
+    Proven logging framework for .NET, we use it in all apps for error and trace logging. Although, it's pretty ugly to configure through code. 
+    
+    [PdfSharp][12]
+    
+    PDF creator, a lot better API than iTextSharp, but don't got all the features of it.  
+    
+    [NPOI][13]
+    
+    Excel file creator, ported for java's POI, which the API suffers from, but got a lot of features (except rendering charts dynamically, which is a bummer. 
+    
+    [T4MVC][14]
+    
+    Instead of referring to views and actions in code with "magic string" T4MVC creates strongly typed helpers for you. 
+    
+    [Linq to SQL][15]
+    
+    A simple ORM which don't got the impressive feature set or the performance of [nHibernate][16], but do got a supreme LINQ engine. Read my post on [how to get the most out of Linq to SQL][17].
+    
+    [MigratorDotNet][18]
+    
+    Don't do RMDBS with out a migration tool. It will ease a lot of the pain a static schema forces upon you. MigratorDotNet isn't maintained anymore but some alternatives are [NMigrations][19] and [Fluent Migrator][20]. 
+    
+    
+    [jQuery][21] (and [jQuery UI][22])
+    
+    For all our javascript needs..
+    
+    [YUI Grids][23]
+    
+    CSS framework, but will probably use [960 Grid System][24] next time.  
+    
+    [TeamCity][25]
+    
+    Continuous integration has always been a natural part of your workflow. TeamCity is very feature rich build management and CI server. It listens at our source code repository for changes, when some one commits anything it builds it, run all unit and integration tests and then deploys it to the staging/production servers, all with out us moving a finger. 
+    
+    [GitHub][26]
+    
+    Previously we used SVN with [VisualSVN][27] and hosted it ourself, but we've now employing Git, mostly because it's very good branch capabilities. Although a Git server is some what cumbersome to set up on a windows machine, so just signed up for GitHub, less hassel. 
+    
+    [Cygwin][28]
+    
+    Unfortunately the Git support for windows is quite bad, so we use Cygwin (which "emulates" the linux api) to get the power of all those linux commands and applications, including Git right at our windows desktops. 
+    
+     [1]: http://www.asp.net/mvc
+     [2]: http://ASP.NET
+     [3]: http://codebetter.com/blogs/karlseguin/archive/2010/03/11/webforms-vs-mvc-again.aspx
+     [4]: http://code.google.com/p/autofac/
+     [5]: http://www.nunit.org/
+     [6]: http://code.google.com/p/moq/
+     [7]: http://www.specflow.org/
+     [8]: http://watin.sourceforge.net/
+     [9]: http://code.google.com/p/elmah/
+     [10]: http://automapper.codeplex.com/
+     [11]: http://logging.apache.org/log4net/
+     [12]: http://pdfsharp.com/
+     [13]: http://npoi.codeplex.com/
+     [14]: http://mvccontrib.codeplex.com/wikipage?title=T4MVC&referringTitle=Documentation
+     [15]: http://msdn.microsoft.com/en-us/library/bb386976.aspx
+     [16]: http://fluentnhibernate.org/
+     [17]: http://devcarl.posterous.com/efficient-workflow-with-linq-to-sql-migrator
+     [18]: http://code.google.com/p/migratordotnet/
+     [19]: http://nmigrations.codeplex.com/
+     [20]: http://wiki.github.com/schambers/fluentmigrator/
+     [21]: http://jquery.com/
+     [22]: http://jqueryui.com/
+     [23]: http://developer.yahoo.com/yui/grids/builder/
+     [24]: http://960.gs
+     [25]: http://www.jetbrains.com/teamcity/
+     [26]: http://github.com/
+     [27]: http://www.visualsvn.com/
+     [28]: http://www.cygwin.com/
+  :posted: 2010-09-11 19:45:00 +02:00
+- :slug: cygwin-git-svn-unable-to-remap
+  :title: Cygwin git svn unable to remap?
+  :body: |-
+    Getting errors like the one below in Cygwin? 
+    
+    >       2 [main] perl 8496 C:\cygwin\bin\perl.exe: \***| fatal error - unable to remap C:\cygwin\bin\cygsvn\_fs\_base-1-0.dll to same address as parent: 0xB00000 != 0xC10000   
+    >       2 [main] perl 11192 fork: child 8496 - died waiting for dll loading, errno 11   
+    >       2 [main] perl 8496 C:\cygwin\bin\perl.exe: \***| fatal error - unable to remap C:\cygwin\bin\cygsvn\_fs\_base-1-0.dll to same address as parent: 0xB00000 != 0xC10000   
+    >       2 [main] perl 11192 fork: child 8496 - died waiting for dll loading, errno 11
+    
+    Solution: Temporally disable your anti-virus software.
+  :posted: 2010-09-08 10:21:00 +02:00
+- :slug: efficient-workflow-with-linq-to-sql-using-migrator-t4-and-some-xslt
+  :title: Efficient workflow with Linq to Sql using Migrator, T4 and some Xslt
+  :body: |-
+    [Linq to SQL][1] is still my favorite datalayer, why? Excellent Linq capabilities and the fact that I only have to change my database once, and my code/entities will be immediately reflected. How? 
+    
+    First, download [MigratorDotNet][2], it's a utility for database migrations, which versions your database changes in code: <http://code.google.com/p/migratordotnet/wiki/GettingStarted>. Create a new library in your solution and start [writing migrations][3].
+    
+    Don't let VS generate your datacontext and entities, [L2ST4][4] does it a lot better, essentially it's T4 templates which allows you to change exactly the way your datacontext and entities are generated.
+    
+    Now copy and add [MigrateAndGenerateContext.cmd][5] and [MyDB.xslt][6] from the code samples below to your solution and run the cmd ([here is a solution how to run .cmd files from within VS][7]). What it will do is to apply your migrations, eg. Add tables, rename columns etc., then generate a new .dbml file using [SqlMetal][8], then the XSLT will transform the .dbml (which simply is a XML file) and it will apply your changes like replacing some columns with your Enums or hiding some tables you don't want classes for. You need a Xslt transformer for that step to work, you can [download msxsl.exe from Microsoft][9] or a version which can [do inline scripts from here][10], which you need if you want to take use of the [SqlMetal bug][11]fix i've supplied in the xslt. At last the script will automatically run the L2ST4 template and generate the new datacontext and entities, all without manual/error prone interaction.
+    
+    Done! You've changed your database schema and regenerated the correct datacontext and entities with one code change and one click!
+    
+    Now all the changes you've done is applied at your developer machine, now add the Migrator.Console.exe part to your deploy script and then your live database will be updated automatically. No more tedious executing .sql files manually or keeping track of which .sql file is applied or not!
+    
+    http://gist.github.com/414291
+    
+    [1]: http://msdn.microsoft.com/en-us/library/bb425822.aspx
+    [2]: http://code.google.com/p/migratordotnet/
+    [3]: http://code.google.com/p/migratordotnet/wiki/WritingMigrations
+    [4]: http://l2st4.codeplex.com/
+    [5]: http://gist.github.com/414291#file_migrate_and_generate_context.cmd
+    [6]: http://gist.github.com/414291#file_my_db.xslt
+    [7]: http://www.rickglos.com/post/2008/02/How-to-run-cmd-files-from-Visual-Studio.aspx
+    [8]: http://msdn.microsoft.com/en-us/library/bb386987.aspx
+    [9]: http://www.microsoft.com/downloads/details.aspx?familyid=2fb55371-c94e-4373-b0e9-db4816552e41&displaylang=en
+    [10]: http://www.codeproject.com/KB/XML/msxslplus.aspx
+    [11]: http://connect.microsoft.com/VisualStudio/feedback/details/486598/sqlmetal-generates-incorrectly-capitalized-identifiers
+  :posted: 2010-05-26 12:44:00 +02:00
+- :slug: aspnet-mvc-and-the-microsoft-chart-controls-in-net-40
+  :title: Asp.Net MVC and the Microsoft Chart Controls in .NET 4.0
+  :body: |-
+    I'm a big fan of [Microsoft Chart Controls][1]. In .NET 4 the Chart Controls has become a part of the framework so there is not a [separate download as to .NET 3.5][2]. In this post I will show how to integrate them with Asp.Net MVC on .NET 4 because there are some changes from .NET 3.5. Also the most examples on the web suggests that you should output the resulting image directly from the Controller, I will show you how to take use of the full capabilities of Chart Controls and let it render it's own html, including <map>.  Last in the post are all the code examples. 
+    
+    In .NET 4.0 the Chart Controls are integrated and with the reduced web.config you don't have to add that much stuff, but there is some, most notably the ChartImg.axd handler (see below).
+    
+    A new thing quirk in .NET 4.0 is that the ChartImg.axd always will append to your current url. Therefor we need to ignore all urls ending with ChartImg.axd in our routetable. This ignore rule has to be applied before any Area registration, else wise it won't be applied in your Areas. 
+    
+    The core thing in this solution is that you preserve the Chart object as long as possible, and then let it render it self. That gives us the benefits of all extra html the Chart Control can generate (like imagemap) and image caching. 
+    
+    http://gist.github.com/377126
+    
+     [1]: http://code.msdn.microsoft.com/mschart
+     [2]: http://www.microsoft.com/downloads/details.aspx?FamilyId=130F7986-BF49-4FE5-9CA8-910AE6EA442C&displaylang=en
+  :posted: 2010-04-25 13:53:00 +02:00

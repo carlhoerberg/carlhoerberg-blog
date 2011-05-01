@@ -5,29 +5,28 @@
     %title Carl Hörberg on development
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %link{:href => "http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:light,regular", :rel => "stylesheet", :type => "text/css"}
-    / The 1140px Grid
+    %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/1140.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     /[if lte IE 9]
-      <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" />
-    / Type and image presets - NOT ESSENTIAL
-    %link{:href => "/css/typeimg.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-    / Make minor type adjustments for 1024 monitors
-    %link{:href => "/css/smallerscreen.css", :media => "only screen and (max-width: 1023px)", :rel => "stylesheet"}
-    / Resets grid for mobile
-    %link{:href => "/css/mobile.css", :media => "handheld, only screen and (max-width: 767px)", :rel => "stylesheet"}
-    / Put your layout here
-    %link{:href => "/css/layout.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+      %link{:href => "/css/ie.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/css/styles.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
 
   %body
     .container
-      .row
+      .row#main
         .twelvecol
-          %h1 Carl Hörberg on development
-      .row
-        .twelvecol
-          %ul#menu
-            %li
-              %a{:href=>url('/')} Home
-      .row
-        .twelvecol
-          !=yield
+          .row
+            .twelvecol
+              %h1 Carl Hörberg on development
+          .row
+            .twelvecol
+              %ul#menu
+                %li
+                  %a{:href=>url('/')} Home
+                %li
+                  %a{:href=>url('/pages/resume')} Resume
+          .row
+            .ninecol
+              !=yield
+            .threecol.last
+              &nbsp;

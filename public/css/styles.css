@@ -1,0 +1,83 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+	body {
+		font-family: 'Ubuntu', "Bitstream Vera Sans", "DejaVu Sans", Tahoma, sans-serif;
+		color: #505050;
+		color: rgba(0, 0, 0, 0.8);	
+		background: #F8F8F8;
+		background-image: url(/images/bg.jpg);
+	}
+	h1, h2, h3 {
+		font-family: 'Yanone Kaffeesatz', 'Ubuntu', "Bitstream Vera Sans", "DejaVu Sans", Tahoma, sans-serif;
+		color: #404040;
+		text-shadow: 1px 1px 1px white;
+		font-weight: normal;
+	}
+	#main {
+	}
+
+	.post {
+		border-bottom: solid 1px #CCC;
+		padding-bottom: 1em;
+		margin: 1em;
+		padding: 2em 1em;
+		background-color: #fff;
+		padding: 0 1em;
+		-moz-box-shadow: 0 0 5px 5px #CCC;
+		box-shadow: 0 0 5px 5px #CCC;
+	}
+
+	h2 a {
+		text-decoration: none;
+		color: #666;
+	}
+	a {
+		color: #005698;
+		color: rgba(85, 130, 145, 0.8);
+	}
+	a:hover {
+		color: #E65F15;
+	}
+	
+	p {
+		margin: 1em 1em 0;
+	}
+	ul {
+		padding: 2em;
+		list-style: normal;
+	}
+	#menu {
+		list-style: none;
+		padding: 0;
+	}
+	#menu li {
+		display: inline-block;
+	}
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
