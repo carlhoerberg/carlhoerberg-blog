@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'haml'
 require 'builder'
+require 'dm-serializer'
 require File.expand_path("../models", __FILE__)
 
 set :haml, :format => :html5, :escape_html => true
@@ -48,6 +49,11 @@ get '/rss.xml' do
 	content_type 'application/rss+xml'
 	@posts = Post.all(:order => [:posted.desc])
 	builder :rss
+end
+
+get '/export.yml' do
+	content_type 'text/yaml'
+	Post.all(:order => [:posted.desc]).to_yaml
 end
 
 get '/edit/:slug' do
