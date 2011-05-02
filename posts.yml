@@ -255,4 +255,31 @@
     
      [1]: http://code.msdn.microsoft.com/mschart
      [2]: http://www.microsoft.com/downloads/details.aspx?FamilyId=130F7986-BF49-4FE5-9CA8-910AE6EA442C&displaylang=en
-  :posted: 2010-04-25 13:53:00 +02:00
+  posted: 2010-04-25 13:53:00 +02:00
+- slug: how-to-use-jquery-ui-autocomplete-with-aspnet
+  title: How to use JQuery UI Autocomplete with Asp.Net MVC 
+  posted: 2010-04-20 20:51:00 +02:00
+  body: |-
+    [Microsoft has swifted][1] away from [Ajax Library][2] and they are promoting [jQuery][3] as the primary way of develop client side ajax applications. This is good news, Microsoft is even contributing resources to the jQuery core team. 
+
+    A couple of weeks ago i showed how you could use [Ajax Library Autocomplete component with Asp.Net MVC][4]. This time I will instead show you how to make [the new Autocomplete component in jQuery UI 1.8][5] play well with Asp.Net MVC, and it's a lot easier than with Ajax Library!  
+
+    First, in your view, include jQuery 1.4 and jquery UI 1.8 (here i use [Google's javascript CDN][6]), then add a text field to your body, then some javascript to hook it up:
+
+    https://gist.github.com/951237
+
+    I've included the select event, which will fire when the users has selected an item, in which you can load more stuff etc. Be sure to check out the [API for autocomplete ][7] for more events and properties. 
+
+    If you look at the Autocomplete controller you see that I query my User table where the Users name starts with the incoming term. We select only the id and the name from the user (you can select more stuff if you want to make it available in your jQuery events). I only take 10 items, make an array of them which we return as Json. 
+
+    Important to note is that we have to add "JsonRequestBehavior.AllowGet" argument to the Json() function because jQuery UI Autocomplete makes a Get request and Asp.Net MVC by default doesn't allow this [because of the security concerns][8].
+
+    [1]: http://stephenwalther.com/blog/archive/2010/03/16/microsoft-jquery-and-templating.aspx
+    [2]: http://www.asp.net/ajax/
+    [3]: http://jquery.com/
+    [4]: http://devcarl.posterous.com/how-to-use-ajax-library-4-autocomplete-with-a
+    [5]: http://jqueryui.com/demos/autocomplete
+    [6]: http://code.google.com/intl/sv/apis/ajaxlibs/documentation/index.html#jqueryUI
+    [7]: http://docs.jquery.com/UI/Autocomplete
+    [8]: http://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx 
+

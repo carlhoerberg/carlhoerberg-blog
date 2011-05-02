@@ -1,0 +1,7 @@
+.post
+  .head
+    %h2
+      %a{:href=>"/#{@page.slug}"}
+        = @page.title
+  .body
+    != markdown @page.body

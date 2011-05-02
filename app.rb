@@ -8,7 +8,7 @@ require 'yaml'
 set :haml, :format => :html5, :escape_html => true
 
 before do 
-	cache_control :public
+	cache_control :public #, :max_age => 3600*24
 	content_type :html, :charset => 'utf-8'
 end
 
@@ -28,7 +28,7 @@ get '/' do
 end
 
 get '/rss.xml' do
-	content_type 'application/rss+xml'
+	content_type 'application/rss+xml', :charset => 'utf-8'
 	last_modified File.mtime('posts.yml')
 	@posts = YAML.load_file 'posts.yml'
 	@posts.sort_by! { |p| p.posted }.reverse!
@@ -38,8 +38,8 @@ end
 get "/pages/:slug" do |slug|
 	last_modified File.mtime("pages.yml")
 	data = YAML.load_file "pages.yml"
-	@post = data.select { |p| p['slug'] == slug }.first
-	haml :post
+	@page = data.select { |p| p['slug'] == slug }.first
+	haml :page
 end
 
 get "/:slug" do |slug|

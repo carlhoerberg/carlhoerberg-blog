@@ -10,7 +10,7 @@
     /[if lte IE 9]
       %link{:href => "/css/ie.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/styles.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-
+    %link{:href => "/rss.xml", :rel => "alternate", :title => "RSS feed", :type => "application/rss+xml"}
   %body
     .container
       .row#main
@@ -19,16 +19,17 @@
             .twelvecol
               %h1 Carl Hörberg on development
           .row
-            .twelvecol
+            .onecol
               %ul#menu
                 %li
                   %a{:href=>url('/')} Home
                 %li
                   %a{:href=>url('/pages/resume')} Resume
-          .row
+              %a{:type=>"application/rss+xml", :href=>"/rss.xml"} RSS feed
+
             .ninecol
               !=yield
-            .threecol.last
+            .twocol.last
               &nbsp;
     :javascript
       var _gaq = _gaq || [];
