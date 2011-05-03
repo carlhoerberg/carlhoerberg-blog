@@ -45,7 +45,8 @@ end
 get "/:slug" do |slug|
 	last_modified File.mtime("posts.yml")
 	data = YAML.load_file "posts.yml"
-	@post = data.select { |p| p['slug'] == slug }.first
+	@post = data.select { |p| p.slug == slug }.first
+	halt 404 if @post.nil?
 	haml :post
 end
 
