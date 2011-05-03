@@ -19,17 +19,31 @@
             .twelvecol
               %h1 Carl Hörberg on development
           .row
-            .onecol
+            .twocol
               %ul#menu
                 %li
                   %a{:href=>url('/')} Home
                 %li
                   %a{:href=>url('/pages/resume')} Resume
-              %a{:type=>"application/rss+xml", :href=>"/rss.xml"} RSS feed
-
+              %ul#links
+                %li
+                  %a{:type=>"application/rss+xml", :href=>"/rss.xml"} 
+                    %img{:src=>'/images/feed_28.png'}
+                %li
+                  %a{:href=>'https://github.com/carlhoerberg'}
+                    %img{:src=>'/images/github_32.png'}
+                %li
+                  %a{:href=>'http://twitter.com/carlhoerberg'}
+                    %img{:src=>'/images/twitter_32.png'}
+                %li
+                  %a{:href=>'http://facebook.com/carl.hoerberg'}
+                    %img{:src=>'/images/facebook_32.png'}
+                %li
+                  %a{:href=>'http://se.linkedin.com/in/carlhoerberg'}
+                    %img{:src=>'/images/linkedin_32.png'}
             .ninecol
               !=yield
-            .twocol.last
+            .onecol.last
               &nbsp;
     :javascript
       var _gaq = _gaq || [];

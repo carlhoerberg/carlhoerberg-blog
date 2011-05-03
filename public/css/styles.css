@@ -79,6 +79,14 @@
 		padding: 0 2em 1em;
 		list-style: normal;
 	}
+	#links {
+		list-style: none;
+		padding: .5em 0;
+	}
+	#links li {
+		display: inline-block;
+		padding: .2em;
+	}
 	#menu {
 		list-style: none;
 		padding: 0;
