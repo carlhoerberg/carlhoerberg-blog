@@ -6,24 +6,40 @@
   .body
     != replace_gist(markdown(@post.body))
   .foot
-    %a{:name=>"comments"}
-    #disqus_thread
-    :javascript
-      var disqus_shortname = 'carlhoerberg-blog'; 
+    .row{:style=>'overflow: visible'}
+      .twocol
+        %a.twitter-share-button{"data-count" => "horizontal", "data-via" => "carlhoerberg", :href => "http://twitter.com/share"} Tweet
+        %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
+      .twocol
+        #fb-root
+        %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+        %fb:like{:action => "recommend", :font => "tahoma", :href => "", :layout => "button_count", :send => "false", :show_faces => "false", :width => "90"}
+      .fivecol
+        &nbsp;
+      .threecol.last.postinfo
+        =@post.posted.strftime 'Posted at %Y-%m-%d %H:%M'
+    .row
+      .twelvecol
+        %a{:name=>"disqus_thread"}
+        #disqus_thread
+        :javascript
+          var disqus_shortname = 'carlhoerberg-blog'; 
 
-      // The following are highly recommended additional parameters. Remove the slashes in front to use.
-      var disqus_identifier = '#{@post.slug}';
-      var disqus_url = '#{url('/'+ @post.slug)}';
+          // The following are highly recommended additional parameters. Remove the slashes in front to use.
+          var disqus_identifier = '#{@post.slug}';
+          var disqus_url = '#{url('/'+ @post.slug)}';
 
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    %noscript
-      Please enable JavaScript to view the
-      %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
-    %a.dsq-brlink{:href => "http://disqus.com"}
-      blog comments powered by
-      %span.logo-disqus Disqus
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); 
+            dsq.type = 'text/javascript'; 
+            dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        %noscript
+          Please enable JavaScript to view the
+          %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
+        %a.dsq-brlink{:href => "http://disqus.com"}
+          blog comments powered by
+          %span.logo-disqus Disqus

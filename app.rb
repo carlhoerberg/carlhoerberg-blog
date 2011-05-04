@@ -11,6 +11,7 @@ before do
 	redirect "http://carlhoerberg.com#{request.path}" if request.host != 'carlhoerberg.com' and ENV['RACK_ENV'] == 'production'
 	cache_control :public #, :max_age => 3600*24
 	content_type :html, :charset => 'utf-8'
+	@title = "Carl Hörberg on development"
 end
 
 class ::Hash
@@ -40,6 +41,8 @@ get "/pages/:slug" do |slug|
 	last_modified File.mtime("pages.yml")
 	data = YAML.load_file "pages.yml"
 	@page = data.select { |p| p['slug'] == slug }.first
+	halt 404 if @page.nil?
+	@title = @page.title
 	haml :page
 end
 
@@ -48,6 +51,7 @@ get "/:slug" do |slug|
 	data = YAML.load_file "posts.yml"
 	@post = data.select { |p| p.slug == slug }.first
 	halt 404 if @post.nil?
+	@title = @post.title
 	haml :post
 end
 
