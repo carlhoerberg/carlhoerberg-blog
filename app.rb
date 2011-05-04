@@ -8,6 +8,7 @@ require 'yaml'
 set :haml, :format => :html5, :escape_html => true
 
 before do 
+	redirect "http://carlhoerberg.com#{request.path}" if request.host != 'carlhoerberg.com' and ENV['RACK_ENV'] == 'production'
 	cache_control :public #, :max_age => 3600*24
 	content_type :html, :charset => 'utf-8'
 end
