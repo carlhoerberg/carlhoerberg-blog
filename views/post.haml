@@ -7,15 +7,15 @@
     != replace_gist(markdown(@post.body))
   .foot
     .row{:style=>'overflow: visible'}
-      .twocol
-        %a.twitter-share-button{"data-count" => "horizontal", "data-via" => "carlhoerberg", :href => "http://twitter.com/share"} Tweet
-        %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
+      .fivecol
+        &nbsp;
       .twocol
         #fb-root
         %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
         %fb:like{:action => "recommend", :font => "tahoma", :href => "", :layout => "button_count", :send => "false", :show_faces => "false", :width => "90"}
-      .fivecol
-        &nbsp;
+      .twocol
+        %a.twitter-share-button{"data-count" => "horizontal", "data-via" => "carlhoerberg", :href => "http://twitter.com/share"} Tweet
+        %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
       .threecol.last.postinfo
         =@post.posted.strftime 'Posted at %Y-%m-%d %H:%M'
     .row
@@ -24,12 +24,9 @@
         #disqus_thread
         :javascript
           var disqus_shortname = 'carlhoerberg-blog'; 
-
-          // The following are highly recommended additional parameters. Remove the slashes in front to use.
           var disqus_identifier = '#{@post.slug}';
           var disqus_url = '#{url('/'+ @post.slug)}';
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
           (function() {
             var dsq = document.createElement('script'); 
             dsq.type = 'text/javascript'; 

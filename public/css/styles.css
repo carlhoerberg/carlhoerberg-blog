@@ -23,7 +23,6 @@
 		box-shadow: 0 0px 15px #BBB;
 		text-shadow: 0 1px 1px #CCC;
 		color: #555;
-		font-style: italic;
 		background: #F1F1F1 url(/images/quote.gif) no-repeat 10px 15px;
 		border: 2px solid #DDD;
 		margin: 1em;
@@ -39,7 +38,7 @@
 	 box-shadow: 0 1px 5px rgba(0, 0, 0, .6);
 	 -moz-border-radius: 4px;
 	 border-radius: 4px;
-	 margin: 1em 0;
+	 margin: 0 0 2em;
 	 _border: 1px solid #686868;
 }
 
@@ -109,7 +108,7 @@ ul {
 }
 #links li {
 	display: inline-block;
-	padding: .2em;
+	padding: 0 .2em .2em 0;
 }
 #menu {
 	list-style: none;
@@ -130,6 +129,11 @@ ul {
 }
 #menu a:hover {
 	text-decoration: underline;
+}
+#disqus_thread h3 {
+	font-family: 'Ubuntu', "Bitstream Vera Sans", "DejaVu Sans", Tahoma, sans-serif;
+
+
 }
 
 /* ============================= */

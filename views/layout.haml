@@ -5,7 +5,7 @@
     %title= @title
     %meta{:content => "Title", :property => @title}/
     %meta{:content => "blog", :property => "og:type"}/
-    %meta{:content => "http://carlhoerberg.com", :property => "og:url"}/
+    %meta{:content => request.url, :property => "og:url"}/
     %meta{:content => "Carl Hörberg on development", :property => "og:site_name"}/
     %meta{:content => "705815939", :property => "fb:admins"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
@@ -18,7 +18,7 @@
     %link{:href => "http://feeds.feedburner.com/devcarl", :rel => "alternate", :title => "RSS feed", :type => "application/rss+xml"}
   %body
     .container
-      .row#main
+      .row
         .twelvecol
           .row
             .twelvecol
@@ -30,21 +30,22 @@
                   %a{:href=>url('/')} Home
                 %li
                   %a{:href=>url('/pages/resume')} Resume
-              %ul#links
                 %li
                   %a{:type=>"application/rss+xml", :href=>"http://feeds.feedburner.com/devcarl"} 
-                    %img{:src=>'/images/feed_28.png'}
+                    RSS
+                    %img{:src=>'/images/feed_28.png', :style => 'height: 16px; width: 16px; vertical-align: baseline;'}
+              %ul#links
                 %li
-                  %a{:href=>'https://github.com/carlhoerberg'}
+                  %a{:href=>'https://github.com/carlhoerberg', :title=>'GitHub'}
                     %img{:src=>'/images/github_32.png'}
                 %li
-                  %a{:href=>'http://twitter.com/carlhoerberg'}
+                  %a{:href=>'http://twitter.com/carlhoerberg', :title=>'Twitter'}
                     %img{:src=>'/images/twitter_32.png'}
                 %li
-                  %a{:href=>'http://facebook.com/carl.hoerberg'}
+                  %a{:href=>'http://facebook.com/carl.hoerberg', :title=>'Facebook'}
                     %img{:src=>'/images/facebook_32.png'}
                 %li
-                  %a{:href=>'http://se.linkedin.com/in/carlhoerberg'}
+                  %a{:href=>'http://se.linkedin.com/in/carlhoerberg', :title => 'LinkedIn'}
                     %img{:src=>'/images/linkedin_32.png'}
             .ninecol
               !=yield
