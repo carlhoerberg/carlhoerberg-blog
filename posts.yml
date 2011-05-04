@@ -1,4 +1,34 @@
 --- 
+- slug: why-ruby-is-so-much-better-than-csharp
+  title: Why Ruby is so much better than C#
+  posted: 2011-05-04 08:17:00 +02:00
+  body: |- 
+    I've been thinking a lot about why my development team is so much more productive since we switched to [Ruby](http://www.ruby-lang.org)/[Sinatra](http://sinatrarb.com) from C#/Asp.Net MVC. Do we get stuck less often? No, learning new libs always takes times and have some quirkies. Are we better Ruby programmers than C# progammers? Most unlikely, at least we got a lot of more C# experince. So what is it? I think [Karl Seguin](http://openmymind.net/) can be on to something:
+
+    > I don't think C#/Java developers have any concept of how much energy/productivity they spend on decoupling. Worse, I think many C#/Java developers don't understand that DI, interface-based programming, and fear of statics, is result of language limitations.
+    -- [Karl Seguin](http://openmymind.net/2011/5/3/Dealing-with-Now-and-why-i-am-almost-done-C%23-and-J)
+
+    In C# you have to have so much infrastructure, and you tend to work a lot with it. You put a lot of effort to not use static, not coupling classes etc. because then you are in a lot of trouble when it comes to testing. In Ruby it's so much easier to just get things done. No Visual Studio bloat, adding a ton of libs, wiring up DI, separting you domain models from you ORM etc. And because of the simplicity of the language constructors you don't miss VisualStudio, IntelliSense or ReSharper. The speed you get with [Vim](http://www.vim.org) when using Ruby is staggering.
+
+- slug: new-blog
+  title: New blog
+  posted: 2011-05-03 21:29:00 +02:00
+  body: |-
+    I justed moved my blog from [Posterous][1], [rolled my own blog engine][2] and put it on [Heroku][3]. 
+    
+    The architecture is really simple, it's a plain [Sinatra][4] app which just reads the posts from a static YAML file. Of course it want scale if you blog like [Ayende Rahien](http://ayende.com/Blog/) but for me it will do until later. Comments are provided through [Disqus](http://disqus.com). The posts is formatted in Markdown. There are several reasons why I like having my posts under source control: 
+
+    * No need for database backup
+    * I can use Vim to write my posts
+    * The site is read-only, so no security mesaures is needed.
+    * No editor or domain models is needed in the app. 
+    
+    You can see [the code][2] over at [GitHub](https://github.com).
+
+    [1]: http://posterous.com
+    [2]: https://github.com/carlhoerberg/carlhoerberg-blog
+    [3]: http://heroku.com
+    [4]: http://sinatrarb.com
 - slug: how-to-unit-test-rabbitmq-in-c
   title: How to unit test RabbitMQ in C#
   body: |-
