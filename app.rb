@@ -8,9 +8,9 @@ require 'yaml'
 set :haml, :format => :html5, :escape_html => true
 
 configure :production do 
-	cache_control :public, :max_age => 3600 
 	before do 
 		redirect "http://carlhoerberg.com#{request.path}", 301 if request.host != 'carlhoerberg.com'
+		cache_control :public, :max_age => 3600 
 	end
 end
 
