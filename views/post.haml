@@ -4,7 +4,7 @@
       %a{:href=>"/#{@post.slug}"}
         = @post.title
   .body
-    != replace_gist(markdown(@post.body))
+    != replace_gist_with_script(markdown(@post.body))
   .foot
     .row{:style=>'overflow: visible'}
       .fivecol

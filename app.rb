@@ -56,7 +56,13 @@ get "/:slug" do |slug|
 end
 
 helpers do
-	def replace_gist(html)
-		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/, '<script src="\1.js"></script>')
+	def replace_gist_with_script(html)
+		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/,
+						 	'<script src="\1.js"></script>')
+	end
+
+	def replace_gist_with_link(html)
+		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/, 
+							'See the code here: <a href="\1.js">\1</a>')
 	end
 end
