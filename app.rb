@@ -7,19 +7,16 @@ require 'yaml'
 
 set :haml, :format => :html5, :escape_html => true
 
-before do 
-	redirect "http://carlhoerberg.com#{request.path}" if request.host != 'carlhoerberg.com' and ENV['RACK_ENV'] == 'production'
-	cache_control :public #, :max_age => 3600*24
-	content_type :html, :charset => 'utf-8'
-	@title = "Carl Hörberg on development"
+configure :production do 
+	cache_control :public, :max_age => 3600 
+	before do 
+		redirect "http://carlhoerberg.com#{request.path}", 301 if request.host != 'carlhoerberg.com'
+	end
 end
 
-class ::Hash
-  def method_missing(name)
-    return self[name] if key? name
-    self.each { |k,v| return v if k.to_s.to_sym == name }
-    super.method_missing name
-  end
+before do 
+	content_type :html, :charset => 'utf-8'
+	@title = "Carl Hörberg on development"
 end
 
 get '/' do
@@ -58,11 +55,19 @@ end
 helpers do
 	def replace_gist_with_script(html)
 		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/,
-						 	'<script src="\1.js"></script>')
+							'<script src="\1.js"></script>')
 	end
 
 	def replace_gist_with_link(html)
 		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/, 
 							'See the code here: <a href="\1.js">\1</a>')
+	end
+end
+
+class ::Hash
+	def method_missing(name)
+		return self[name] if key? name
+		self.each { |k,v| return v if k.to_s.to_sym == name }
+		super.method_missing name
 	end
 end
