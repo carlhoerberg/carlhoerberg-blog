@@ -6,6 +6,7 @@ gem "builder"
 gem "rdiscount"
 
 group :production do 
+	gem 'newrelic_rpm'
 end
 
 group :development do

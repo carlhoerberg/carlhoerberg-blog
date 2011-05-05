@@ -8,8 +8,11 @@ require 'yaml'
 set :haml, :format => :html5, :escape_html => true
 
 configure :production do 
+	require 'newrelic_rpm'
 	before do 
-		redirect "http://carlhoerberg.com#{request.path}", 301 if request.host != 'carlhoerberg.com'
+		if request.host != 'carlhoerberg.com'
+			redirect "http://carlhoerberg.com#{request.path}", 301 
+		end
 		cache_control :public, :max_age => 3600 
 	end
 end
