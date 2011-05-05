@@ -25,5 +25,9 @@ describe "Index page" do
 	end
 	it 'links to posts' do 
 	end
+	it 'includes gists' do
+	end
+	it 'has my social links' do
+	end
 
 end
