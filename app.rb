@@ -63,7 +63,7 @@ helpers do
 
 	def replace_gist_with_link(html)
 		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/, 
-							'See the code here: <a href="\1.js">\1</a>')
+							'See the code here: <a href="\1">\1</a>')
 	end
 end
 
