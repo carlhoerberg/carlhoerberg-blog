@@ -1,4 +1,12 @@
 --- 
+- slug: datamapper-list-enum-values
+  title: How to list enum values in DataMapper
+  posted: 2011-05-17 11:53:00 +02:00
+  body: |-
+    The Ruby ORM [DataMapper](http://datamapper.org) as a [Enum property](http://datamapper.org/docs/dm_more/types) which is really handy, but you often want to list the available options in for example a form. Unfortunately it's not well documented, but this gist shows you how: 
+
+    https://gist.github.com/976228
+
 - slug: why-ruby-is-so-much-better-than-csharp
   title: Why Ruby is so much better than C#
   posted: 2011-05-04 08:17:00 +02:00
