@@ -4,6 +4,7 @@ require 'haml'
 require 'builder'
 require 'rdiscount'
 require 'yaml'
+require 'open-uri'
 
 set :haml, :format => :html5, :escape_html => true
 
@@ -13,7 +14,7 @@ configure :production do
 		if request.host != 'carlhoerberg.com'
 			redirect "http://carlhoerberg.com#{request.path}", 301 
 		end
-		cache_control :public, :max_age => 3600 
+		cache_control :public, :max_age => 7200 
 	end
 end
 
@@ -30,8 +31,8 @@ get '/' do
 end
 
 get '/rss.xml' do
-	content_type 'application/rss+xml', :charset => 'utf-8'
 	last_modified File.mtime('posts.yml')
+	content_type 'application/rss+xml', :charset => 'utf-8'
 	@posts = YAML.load_file 'posts.yml'
 	@posts.sort_by! { |p| p.posted }.reverse!
 	builder :rss
@@ -61,14 +62,12 @@ get "/:slug" do |slug|
 end
 
 helpers do
-	def replace_gist_with_script(html)
-		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/,
-							'<script src="\1.js"></script>')
-	end
-
-	def replace_gist_with_link(html)
-		html.gsub(/(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/, 
-							'See the code here: <a href="\1">\1</a>')
+	def gsub_gists(html)
+		html.gsub /(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/ do |match|
+			uri = URI.parse "#{$1}.js".gsub(/http:/, "https:")
+			js = uri.read
+			js.gsub(/document\.write\('(.*)/, '\1').gsub(/\'\)$/, '').gsub(/\\n/, "\n").gsub(/\\["']/, '"').gsub(/\\\//, "/")
+		end
 	end
 end
 

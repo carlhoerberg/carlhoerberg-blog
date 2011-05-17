@@ -5,7 +5,7 @@
         %a{:href=>"/#{p.slug}"}
           = p.title
     .body
-      != replace_gist_with_script(markdown(p.body))
+      != gsub_gists(markdown(p.body))
     .foot
       .row
         .fivecol
