@@ -8,6 +8,7 @@
     %meta{:content => request.url, :property => "og:url"}/
     %meta{:content => "Carl Hörberg on development", :property => "og:site_name"}/
     %meta{:content => "705815939", :property => "fb:admins"}/
+    %meta{:content => "s8xOpGc0p6gaju5HzV53kPNNNVJ7C0mFJuV1qmBF8Zs", :name => "google-site-verification"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %link{:href => "http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu", :rel => "stylesheet", :type => "text/css"}
@@ -16,6 +17,16 @@
       %link{:href => "/css/ie.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/styles.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "http://feeds.feedburner.com/devcarl", :rel => "alternate", :title => "RSS feed", :type => "application/rss+xml"}
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA–8435024–2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
   %body
     .container
       .row
@@ -52,13 +63,3 @@
             .onecol.last
               &nbsp;
 
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA–8435024–2']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
