@@ -46,6 +46,11 @@ get "/pages/:slug" do |slug|
 	haml :page
 end
 
+# legacy url from old blog
+get "/17315192" do
+	redirect url('/aspnet-mvc-and-the-microsoft-chart-controls-in-net-40'), 301
+end
+
 get "/:slug" do |slug|
 	last_modified File.mtime("posts.yml")
 	data = YAML.load_file "posts.yml"
