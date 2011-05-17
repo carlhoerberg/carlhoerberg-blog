@@ -1,4 +1,14 @@
 --- 
+- slug: automatic-backup-of-heroku-database-to-s3
+  title: Automatic backup of Heroku database to S3
+  posted: 2011-05-17 21:34:00 +02:00
+  body: |-
+    I didn't find any good solutions on how to automatically backup the Heroku database to S3, but with some inspiration from [this blog post](http://librarymixer.posterous.com/40960547) I cooked up a solution which takes advantage of the [PG Backups](http://addons.heroku.com/pgbackups) and [Cron](http://addons.heroku.com/cron) addons on [Heroku](http://heroku.com) to backup to [S3](http://aws.amazon.com/s3/) daily, for free. 
+
+    https://gist.github.com/977203
+
+    I hade to monkey patch Heroku::Auth so it doesn't ask for login/password from the prompt, and I had to add a 'capture_stdout' to Kernel to be able to get the url I then download and upload to S3. 
+
 - slug: datamapper-list-enum-values
   title: How to list enum values in DataMapper
   posted: 2011-05-17 11:53:00 +02:00
