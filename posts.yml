@@ -9,6 +9,8 @@
 
     I hade to monkey patch Heroku::Auth so it doesn't ask for login/password from the prompt, and I had to add a 'capture_stdout' to Kernel to be able to get the url I then download and upload to S3. 
 
+    __Update__: As Will Leinweber mentioned in the comments, Heroku are about to [offer this functionallity](http://addons.heroku.com/pgbackups), but to date this feature is still in private beta. 
+
 - slug: datamapper-list-enum-values
   title: How to list enum values in DataMapper
   posted: 2011-05-17 11:53:00 +02:00
