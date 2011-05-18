@@ -4,9 +4,9 @@ gem "sinatra"
 gem "haml"
 gem "builder"
 gem "rdiscount"
+gem 'newrelic_rpm'
 
 group :production do 
-	gem 'newrelic_rpm'
 end
 
 group :development do
