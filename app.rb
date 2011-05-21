@@ -26,7 +26,7 @@ end
 get '/' do
 	last_modified File.mtime('posts.yml')
 	@posts = YAML.load_file 'posts.yml'
-	@posts.sort_by! { |p| p.posted }.reverse!
+	@posts = @posts.sort_by { |p| p.posted }.reverse
 	haml :index
 end
 
@@ -34,7 +34,7 @@ get '/rss.xml' do
 	last_modified File.mtime('posts.yml')
 	content_type 'application/rss+xml', :charset => 'utf-8'
 	@posts = YAML.load_file 'posts.yml'
-	@posts.sort_by! { |p| p.posted }.reverse!
+	@posts = @posts.sort_by { |p| p.posted }.reverse
 	builder :rss
 end
 
