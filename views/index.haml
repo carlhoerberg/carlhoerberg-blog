@@ -5,7 +5,7 @@
         %a{:href=>"/#{p.slug}"}
           = p.title
     .body
-      != gsub_gists(markdown(p.body))
+      != p.body
     .foot
       .row
         .fivecol
@@ -18,7 +18,7 @@
           %a.twitter-share-button{:href => "http://twitter.com/share", :data => {:url => url("/#{p.slug}"), :text => p.title, :count => 'horizontal', :via => 'carlhoerberg'}} Tweet
           %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
         .threecol.last.postinfo
-          =p.posted.strftime 'Posted at %Y-%m-%d %H:%M'
+          =Time.parse(p.posted).strftime 'Posted at %Y-%m-%d %H:%M'
 :javascript
   var disqus_shortname = 'carlhoerberg-blog';
 

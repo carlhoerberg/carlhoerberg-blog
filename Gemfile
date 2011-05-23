@@ -4,9 +4,11 @@ gem "sinatra"
 gem "haml"
 gem "builder"
 gem "rdiscount"
-gem 'newrelic_rpm'
+gem "redis"
+#gem "SystemTimer"
 
 group :production do 
+	gem 'newrelic_rpm'
 end
 
 group :development do

@@ -110,6 +110,7 @@
 
 - slug: twitter-beanstalk-eventmachine-websocket
   title: Twitter + Beanstalk + EventMachine + WebSocket
+  posted: 2010-10-13 20:05:00 +02:00
   body: |-
     Justed [forked][1] a [Twitter AMQP WebSocket example][2] project by [Ruben Fonseca][3] but replaced the AMQP/RabbitMQ with [Beanstalk][4] instead. I've been playing with this fast and simple message queue called Beanstalk for a couple of days and now wanted to see if I could do some WebSocket work with it as well. You can find an [introduction to Beanstalk here][5] and [some comparison to other MQs here][6].
     
@@ -127,20 +128,21 @@
      [8]: http://github.com/voloko/twitter-stream
      [9]: http://github.com/dj2/em-jack
      [10]: http://github.com/igrigorik/em-websocket
-  :posted: 2010-10-13 20:05:00 +02:00
-- :slug: how-to-override-activerecord-primary-key-and-foreign-key-conventions
-  :title: How to override ActiveRecord primary key and foreign key conventions
-  :body: |-
+
+- slug: how-to-override-activerecord-primary-key-and-foreign-key-conventions
+  title: How to override ActiveRecord primary key and foreign key conventions
+  posted: 2010-10-07 13:40:00 +02:00
+  body: |-
     While evaluating the [Microsoft SQL Server adapter][1] for [ActiveRecord ][2]and [IronRuby ][3]i wanted the ability to override some activerecord conventions, class wide, so I didn't have to override it in every class and every association. Specifically I wanted the foreign keys to be named "classNameId" and not "className_id" and the primary keys "Id" instead of lower case "id", this is how you do it: 
     http://gist.github.com/614933
     
     [1]: http://github.com/rails-sqlserver/activerecord-sqlserver-adapter                                           
     [2]: http://guides.rubyonrails.org/active_record_querying.html
     [3]: http://ironruby.net/
-  :posted: 2010-10-07 13:40:00 +02:00
-- :slug: my-development-stack
-  :title: My development stack
-  :body: |-
+- slug: my-development-stack
+  title: My development stack
+  posted: 2010-09-11 19:45:00 +02:00
+  body: |-
     This is the development stack I employ, and why I chosed it:
     
     [ASP.NET MVC][1]
@@ -248,10 +250,10 @@
      [26]: http://github.com/
      [27]: http://www.visualsvn.com/
      [28]: http://www.cygwin.com/
-  :posted: 2010-09-11 19:45:00 +02:00
-- :slug: cygwin-git-svn-unable-to-remap
-  :title: Cygwin git svn unable to remap?
-  :body: |-
+- slug: cygwin-git-svn-unable-to-remap
+  title: Cygwin git svn unable to remap?
+  posted: 2010-09-08 10:21:00 +02:00
+  body: |-
     Getting errors like the one below in Cygwin? 
     
     >       2 [main] perl 8496 C:\cygwin\bin\perl.exe: \***| fatal error - unable to remap C:\cygwin\bin\cygsvn\_fs\_base-1-0.dll to same address as parent: 0xB00000 != 0xC10000   
@@ -260,10 +262,10 @@
     >       2 [main] perl 11192 fork: child 8496 - died waiting for dll loading, errno 11
     
     Solution: Temporally disable your anti-virus software.
-  :posted: 2010-09-08 10:21:00 +02:00
-- :slug: efficient-workflow-with-linq-to-sql-using-migrator-t4-and-some-xslt
-  :title: Efficient workflow with Linq to Sql using Migrator, T4 and some Xslt
-  :body: |-
+- slug: efficient-workflow-with-linq-to-sql-using-migrator-t4-and-some-xslt
+  title: Efficient workflow with Linq to Sql using Migrator, T4 and some Xslt
+  posted: 2010-05-26 12:44:00 +02:00
+  body: |-
     [Linq to SQL][1] is still my favorite datalayer, why? Excellent Linq capabilities and the fact that I only have to change my database once, and my code/entities will be immediately reflected. How? 
     
     First, download [MigratorDotNet][2], it's a utility for database migrations, which versions your database changes in code: <http://code.google.com/p/migratordotnet/wiki/GettingStarted>. Create a new library in your solution and start [writing migrations][3].
@@ -289,10 +291,10 @@
     [9]: http://www.microsoft.com/downloads/details.aspx?familyid=2fb55371-c94e-4373-b0e9-db4816552e41&displaylang=en
     [10]: http://www.codeproject.com/KB/XML/msxslplus.aspx
     [11]: http://connect.microsoft.com/VisualStudio/feedback/details/486598/sqlmetal-generates-incorrectly-capitalized-identifiers
-  :posted: 2010-05-26 12:44:00 +02:00
-- :slug: aspnet-mvc-and-the-microsoft-chart-controls-in-net-40
-  :title: Asp.Net MVC and the Microsoft Chart Controls in .NET 4.0
-  :body: |-
+- slug: aspnet-mvc-and-the-microsoft-chart-controls-in-net-40
+  title: Asp.Net MVC and the Microsoft Chart Controls in .NET 4.0
+  posted: 2010-04-25 13:53:00 +02:00
+  body: |-
     I'm a big fan of [Microsoft Chart Controls][1]. In .NET 4 the Chart Controls has become a part of the framework so there is not a [separate download as to .NET 3.5][2]. In this post I will show how to integrate them with Asp.Net MVC on .NET 4 because there are some changes from .NET 3.5. Also the most examples on the web suggests that you should output the resulting image directly from the Controller, I will show you how to take use of the full capabilities of Chart Controls and let it render it's own html, including <map>.  Last in the post are all the code examples. 
     
     In .NET 4.0 the Chart Controls are integrated and with the reduced web.config you don't have to add that much stuff, but there is some, most notably the ChartImg.axd handler (see below).
@@ -305,7 +307,6 @@
     
      [1]: http://code.msdn.microsoft.com/mschart
      [2]: http://www.microsoft.com/downloads/details.aspx?FamilyId=130F7986-BF49-4FE5-9CA8-910AE6EA442C&displaylang=en
-  posted: 2010-04-25 13:53:00 +02:00
 - slug: how-to-use-jquery-ui-autocomplete-with-aspnet
   title: How to use JQuery UI Autocomplete with Asp.Net MVC 
   posted: 2010-04-20 20:51:00 +02:00

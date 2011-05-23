@@ -5,11 +5,13 @@ require 'builder'
 require 'rdiscount'
 require 'yaml'
 require 'open-uri'
+require 'redis'
 
 set :haml, :format => :html5, :escape_html => true
 
 configure :production do 
 	require 'newrelic_rpm'
+
 	before do 
 		if request.host != 'carlhoerberg.com'
 			redirect "http://carlhoerberg.com#{request.path}", 301 
@@ -21,12 +23,31 @@ end
 before do 
 	content_type :html, :charset => 'utf-8'
 	@title = "Carl Hörberg on development"
+	@redis = Redis.new
+end
+
+get '/update' do
+	@redis.flushdb
+
+	['pages', 'posts'].each do |type|
+		posts = YAML.load_file "#{type}.yml"
+		posts.each do |p| 
+			body = gsub_gists(markdown(p['body'] || ""))
+			@redis.mapped_hmset p['slug'], { :slug => p['slug'], :title => p['title'], :body => body, :posted => p['posted'] }
+			@redis.zadd type, p['posted'].to_i, p['slug']
+		end
+	end
+	"OK"
 end
 
 get '/' do
 	last_modified File.mtime('posts.yml')
-	@posts = YAML.load_file 'posts.yml'
-	@posts = @posts.sort_by { |p| p.posted }.reverse
+	
+	keys = @redis.zrevrange 'posts', 0, Time.now.to_i
+	@posts = []
+	keys.each do |k|
+		@posts << @redis.hgetall(k)
+	end
 	haml :index
 end
 
@@ -40,8 +61,7 @@ end
 
 get "/pages/:slug" do |slug|
 	last_modified File.mtime("pages.yml")
-	data = YAML.load_file "pages.yml"
-	@page = data.select { |p| p['slug'] == slug }.first
+	@page = @redis.hgetall(params[:slug])
 	halt 404 if @page.nil?
 	@title = @page.title
 	haml :page
@@ -54,8 +74,7 @@ end
 
 get "/:slug" do |slug|
 	last_modified File.mtime("posts.yml")
-	data = YAML.load_file "posts.yml"
-	@post = data.select { |p| p.slug == slug }.first
+	@post = @redis.hgetall(params[:slug])
 	halt 404 if @post.nil?
 	@title = @post.title
 	haml :post

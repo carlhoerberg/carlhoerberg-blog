@@ -4,7 +4,7 @@
       %a{:href=>"/#{@post.slug}"}
         = @post.title
   .body
-    != gsub_gists(markdown(@post.body))
+    != @post.body
   .foot
     .row{:style=>'overflow: visible'}
       .fivecol
@@ -17,7 +17,7 @@
         %a.twitter-share-button{"data-count" => "horizontal", "data-via" => "carlhoerberg", :href => "http://twitter.com/share"} Tweet
         %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
       .threecol.last.postinfo
-        =@post.posted.strftime 'Posted at %Y-%m-%d %H:%M'
+        =Time.parse(@post.posted).strftime 'Posted at %Y-%m-%d %H:%M'
     .row
       .twelvecol
         %a{:name=>"disqus_thread"}
