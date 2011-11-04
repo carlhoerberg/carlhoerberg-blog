@@ -17,6 +17,11 @@ configure :production do
 		cache_control :public, :max_age => 7200 
 	end
 end
+configure :development do
+  before do
+    cache_control :no_store
+  end
+end
 
 before do 
 	content_type :html, :charset => 'utf-8'
