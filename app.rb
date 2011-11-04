@@ -14,7 +14,7 @@ configure :production do
 		if request.host != 'carlhoerberg.com'
 			redirect "http://carlhoerberg.com#{request.path}", 301 
 		end
-		cache_control :public, :max_age => 7200 
+		cache_control :public, :max_age => 24 * 3600
 	end
 end
 configure :development do
