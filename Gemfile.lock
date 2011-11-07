@@ -23,7 +23,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rdiscount (1.6.8)
+    redcarpet (1.17.2)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
       rspec-expectations (~> 2.7.0)
@@ -54,6 +54,6 @@ DEPENDENCIES
   capybara
   haml
   newrelic_rpm
-  rdiscount
+  redcarpet
   rspec
   sinatra

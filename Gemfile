@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gem "sinatra"
 gem "haml"
 gem "builder"
-gem "rdiscount"
+gem "redcarpet"
 gem 'newrelic_rpm'
 
 group :production do 

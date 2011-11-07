@@ -2,7 +2,7 @@
 require 'sinatra'
 require 'haml'
 require 'builder'
-require 'rdiscount'
+require 'redcarpet'
 require 'yaml'
 require 'open-uri'
 
