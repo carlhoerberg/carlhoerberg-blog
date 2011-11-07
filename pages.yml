@@ -5,17 +5,20 @@
   body: |- 
     ## Education
 
-    ** Master in Computer Science **  
+    ** Master in Information Technology **  
     2005-2010 at Link&ouml;pings University, Sweden  
-    Focus on software development
+    With focus on software development
 
     ## Experience
 
     ** [Mon 7 Consulting AB][1] **  
-    *While studying, from feb 2008, from 2010 at full time*  
+    *From feb 2008 while studying, at full time since jan 2010*  
 
-    Mon 7 Consulting develops customer specific business applications. I've been the lead developer and been responsible for all of our projects, from pre-study, requirement gathering, architecture, development, testing, training, support and server configuration/management. Lead two other developers. Example of systems we have developed:
+    Mon 7 Consulting develops customer specific business applications. I've been the lead developer and been responsible for all of our projects, from pre-study, requirement gathering, architecture, development, testing, training, support and server configuration/management. I've been in charge of four other developers. Example of systems we have developed:
 
+    *   Complete business application for veterinary clinics. It handles everything from appointments, journals and prescriptions to accounting and inventory management. Biggest challanges: 
+        *    The HA requirements. I built a multi site availablity system.
+        *    Integration with on-site resources such as printers, x-ray and lab equipment.
     *   System for insurances management and incident reporting for one of Sweden's largest counties. 
     *   Application for systematic fire precaution work, including a mobile web interface. 
     *   A system for collection of energy statistics, and making a lot of computation and charts over it. Biggest challenge: Scaling for the amount of data which is gathered. Integration with a lot of different statistics providers. 
