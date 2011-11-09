@@ -5,6 +5,7 @@ gem "haml"
 gem "builder"
 gem "redcarpet"
 gem 'newrelic_rpm'
+gem 'json'
 
 group :production do 
 end

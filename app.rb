@@ -5,6 +5,7 @@ require 'builder'
 require 'redcarpet'
 require 'yaml'
 require 'open-uri'
+require 'json'
 
 set :haml, :format => :html5, :escape_html => true
 
@@ -57,29 +58,54 @@ get "/17315192" do
 	redirect url('/aspnet-mvc-and-the-microsoft-chart-controls-in-net-40'), 301
 end
 
+get '/github' do
+  content_type :text
+  repos = JSON.parse URI.parse("https://api.github.com/users/carlhoerberg/repos").read
+  pull_urls = repos.select{|r| r['fork'] == true}.collect do |r|
+    repo = JSON.parse URI.parse(r['url']).read
+    pulls = []
+    pulls_url = "#{repo['parent']['url']}/pulls?state=closed"
+    begin
+      pulls_json = URI.parse(pulls_url).read
+      pulls.concat JSON.parse pulls_json
+    end while pulls_url = next_page(pulls_json.meta['link'])
+    my_pulls = pulls.select { |p| p['user']['login'] == 'carlhoerberg' }
+    my_pulls.collect { |p| p['html_url'] }
+  end.flatten
+  pull_urls.to_s
+end
+
+def next_page(link)
+  if link
+    if nxt = link.split(',').find { |l| l.end_with? 'rel="next"'} 
+      nxt.sub /^<(.*)>.*$/, '\1'
+    end
+  end
+end
+
 get "/:slug" do |slug|
-	last_modified File.mtime("posts.yml")
-	data = YAML.load_file "posts.yml"
-	@post = data.select { |p| p.slug == slug }.first
-	halt 404 if @post.nil?
-	@title = @post.title
-	haml :post
+  last_modified File.mtime("posts.yml")
+  data = YAML.load_file "posts.yml"
+  @post = data.select { |p| p.slug == slug }.first
+  halt 404 if @post.nil?
+  @title = @post.title
+  haml :post
 end
 
 helpers do
-	def gsub_gists(html)
-		html.gsub /(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/ do |match|
-			uri = URI.parse "#{$1}.js".gsub(/http:/, "https:")
-			js = uri.read
-			js.gsub(/document\.write\('(.*)/, '\1').gsub(/\'\)$/, '').gsub(/\\n/, "\n").gsub(/\\["']/, '"').gsub(/\\\//, "/")
-		end
-	end
+  def gsub_gists(html)
+    html.gsub /(http[s]?:\/\/gist.github.com\/[\d]+)[^#< ]*/ do |match|
+      uri = URI.parse "#{$1}.js".gsub(/http:/, "https:")
+      js = uri.read
+      js.gsub(/document\.write\('(.*)/, '\1').gsub(/\'\)$/, '').gsub(/\\n/, "\n").gsub(/\\["']/, '"').gsub(/\\\//, "/")
+    end
+  end
 end
 
 class ::Hash
-	def method_missing(name)
-		return self[name] if key? name
-		self.each { |k,v| return v if k.to_s.to_sym == name }
-		super.method_missing name
-	end
+  def method_missing(name)
+    return self[name] if key? name
+    self.each { |k,v| return v if k.to_s.to_sym == name }
+    super.method_missing name
+  end
 end
