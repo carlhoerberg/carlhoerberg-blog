@@ -1,4 +1,53 @@
 --- 
+- slug: meerkat-sse-rack-middleware
+  title: 'Meerkat: Rack middleware for Server Sent Events'
+  posted: 2011-11-04 17:05:00 +01:00
+  body: |-
+    My latest open source contribution is a Rack middleware for Server Sent Events. [HtmlRocks got a great article on Server Sent Events and the EventSource javascript API](), go read it ain't familiar to the concept. In short it's a technuiqe to update content on web pages in near realtime, without polling or other "hacks". But it's only uni-directional, eg. the client can only listen, not push stuff, unlike WebSockets which is bidirectional. No problem when the publish/receive ratio is low, just do normal POST request when you wan't to tell something. 
+
+    This rack middleware is called [Meerkat and can be found at GitHub](https://github.com/carlhoerberg/meerkat). The README will get you started, but 
+
+- slug: meerkat-sse-rack-middleware
+  title: 'Meerkat: Rack middleware for Server Sent Events'
+  posted: 2011-11-04 17:05:00 +01:00
+  body: |-
+    HTML5 does have a feature called Event Source, or Server Sent Events (SSE). On a recent project I needed realtime updates, I investigated different options such as web sockets ([em-websockets](https://github.com/igrigorik/em-websocket)) and long polling via [Faye](http://faye.jcoglan.com/) but neither was satsifying. WebSockets are problematic with Heroku and proxies and the ever changeing protocol, Faye wasn't stable when using the Redis backend, which is required when you employ more than one server (in which case you can't use the inmemory backend). 
+
+    The project I was working didn't require older browser compability so we could introuduce HTML5 features, such as SSE. Unfortunately I couldn't find any Rack middleware for it so hence I started on [Meerkat](https://github.com/carlhoerberg/meerkat). Meerkat is SSE Rack middleware supporting multiple backends. Supported backends so far are: 
+
+    * In memory, using [EventMachine Channels](http://eventmachine.rubyforge.org/EventMachine/Channel.html), good for single server usage.
+    * Redis, using [em-hiredis](https://github.com/mloughran/em-hiredis#readme) and the [Pub/Sub API](http://redis.io/topics/pubsub). 
+    * Postgres, using the [Notify/Listen API](http://www.postgresql.org/docs/9.1/static/sql-notify.html). 
+        * When a message is published the topic and json payload is inserted into the 'meerkat_pubsub' table, and then a NOTIFY is issued.
+        * Listening clients recivies the notification and reads the message from the table and writes it to the Event Stream of its clients.
+        * On the next publish all messages older than 5 seconds are deleted. 
+        * No polling is ever done.
+        * This works with PostgreSQL 8 and higher (tested with 8.3 and 9.1). 
+
+    Server Sent Events is a really simple protocol. It's initiated with a simple GET request and the server keeps the connection open and sends 
+
+    ```
+    event: type-of-event
+    data: json-or-text\n
+    data: end-of-message\n\n
+    ``` 
+    
+    
+- slug: 
+  title: Ruby application development without Rails
+  posted: 2011-11-04 16:55:00 +01:00
+  body: |-
+    Many people associate Ruby web application development with Rails. At Mon 7 Consulting where I currently working we don't employ Rails but Sinatra, and for quite large applications as well. I will in this post show you how you can scale Sinatra to work with tens of controllers and hundres of models and what the benefints are. 
+    
+    To begin with, take a look at our project bootstrap template. 
+
+- slug: 
+  title: Embrace your RMDBS
+  posted: 2011-08-31 19:14:00 +02:00
+  body: |-
+    Recently we replaced SQLite with PostgreSQL on our developer machines, beacuse 
+    Don't let your ORM tool reduce your RMDBS to the least common denominator of all RMDBS solutions. 
+    
 - slug: automatic-backup-of-heroku-database-to-s3
   title: Automatic backup of Heroku database to S3
   posted: 2011-05-17 21:34:00 +02:00
