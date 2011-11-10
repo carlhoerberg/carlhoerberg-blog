@@ -159,6 +159,14 @@
 
     * [Autofac](http://code.google.com/p/autofac/) - One of the major Dependency Injection frameworks for .NET
     * [Pony](http://github.com/benprew/pony) - An easy way to send mail in Ruby
+    * [Rack](https://github.com/rack/rack)  
+    * [Faye](https://github.com/rack/rack)  
+
+    ## Open source I've initiated ##
+    * [Meerkat](https://github.com/carlhoerberg/meerkat) - Server Sent Events Rack middleware with multiple backends
+    * [PG-Migrator](https://github.com/carlhoerberg/pg-migrator) - Postgres migrate library with only PG as dependecy, because SQL is the best DSL.
+    * [sprocket-urlrewriter](https://github.com/carlhoerberg/sprockets-urlrewriter) - Rewrites relative urls in css when concated by the asset pipeline lib Sprockets
+    * [sprocket-cache-redis](sprockets-cache-redis) - Redis caching for Sprockets
 
     ## Toy projects ##
 
