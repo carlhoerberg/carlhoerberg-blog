@@ -6,6 +6,8 @@ gem "builder"
 gem "redcarpet"
 gem 'newrelic_rpm'
 gem 'json'
+gem 'em-http-request'
+gem 'thin'
 
 group :production do 
 end
